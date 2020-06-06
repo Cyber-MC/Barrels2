@@ -9,6 +9,10 @@
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<sonar.projectKey>Cyber-MC_Barrels2</sonar.projectKey>
+	<sonar.organization>blughostyt</sonar.organization>
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	<sonar.login>c8072312255ae5cd32be490bab85c637d8e1661a</sonar.login>
   </properties>
   
   <repositories>

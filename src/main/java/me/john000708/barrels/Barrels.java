@@ -33,10 +33,11 @@ public class Barrels extends JavaPlugin implements SlimefunAddon {
     private boolean requirePlastic;
     private boolean displayItem;
     private String itemFormat;
+    private static final String CAPACITY = "capacity";
 
     @Override
     public void onEnable() {
-    	instance = this;
+    	 instance = this;
         Config config = new Config(this);
 
 		// Setting up the Auto-Updater
@@ -162,9 +163,9 @@ public class Barrels extends JavaPlugin implements SlimefunAddon {
         			return false;
         		}
         		
-        		int capacity = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), "capacity"));
+        		int capacity = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), CAPACITY));
         		BlockStorage.addBlockInfo(b, "STRUCT_1", "true");
-                BlockStorage.addBlockInfo(b, "capacity", String.valueOf(capacity + 8192));
+                BlockStorage.addBlockInfo(b, CAPACITY, String.valueOf(capacity + 8192));
                 return true;
         	}
         	
@@ -179,9 +180,9 @@ public class Barrels extends JavaPlugin implements SlimefunAddon {
         			return false;
         		}
         		
-        		int capacity = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), "capacity"));
+        		int capacity = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), CAPACITY));
         		BlockStorage.addBlockInfo(b, "STRUCT_2", "true");
-                BlockStorage.addBlockInfo(b, "capacity", String.valueOf(capacity + 16384));
+                BlockStorage.addBlockInfo(b, CAPACITY, String.valueOf(capacity + 16384));
                 return true;
         	}
         	
@@ -196,9 +197,9 @@ public class Barrels extends JavaPlugin implements SlimefunAddon {
         			return false;
         		}
         		
-        		int capacity = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), "capacity"));
+        		int capacity = Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), CAPACITY));
         		BlockStorage.addBlockInfo(b, "STRUCT_3", "true");
-                BlockStorage.addBlockInfo(b, "capacity", String.valueOf(capacity + 32768));
+                BlockStorage.addBlockInfo(b, CAPACITY, String.valueOf(capacity + 32768));
                 return true;
         	}
         	
