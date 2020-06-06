@@ -20,8 +20,11 @@ import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
 
 public class IDCard extends SimpleSlimefunItem<ItemUseHandler> {
 
+	private static final String WHITELIST = "whitelist";
+
 	public IDCard(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, recipeType, recipe);
+
 	}
 
 	@Override
@@ -47,11 +50,11 @@ public class IDCard extends SimpleSlimefunItem<ItemUseHandler> {
 	            } 
 	            else if (e.getSlimefunBlock().isPresent()) {
 	            	SlimefunItem barrel = e.getSlimefunBlock().get();
-	            	if (barrel instanceof Barrel && BlockStorage.getLocationInfo(clickedBlock.getLocation(), "whitelist") != null && BlockStorage.getLocationInfo(clickedBlock.getLocation(), "owner").equals(p.getUniqueId().toString())) {
-		                String whitelistedPlayers = BlockStorage.getLocationInfo(clickedBlock.getLocation(), "whitelist");
+	            	if (barrel instanceof Barrel && BlockStorage.getLocationInfo(clickedBlock.getLocation(), WHITELIST) != null && BlockStorage.getLocationInfo(clickedBlock.getLocation(), "owner").equals(p.getUniqueId().toString())) {
+		                String whitelistedPlayers = BlockStorage.getLocationInfo(clickedBlock.getLocation(), WHITELIST);
 		                
 		                if (!whitelistedPlayers.contains(ChatColor.stripColor(lore.get(0)))) {
-		                    BlockStorage.addBlockInfo(clickedBlock, "whitelist", whitelistedPlayers + ChatColor.stripColor(lore.get(0)) + ";");
+		                    BlockStorage.addBlockInfo(clickedBlock, WHITELIST, whitelistedPlayers + ChatColor.stripColor(lore.get(0)) + ";");
 		                    
 		                    ItemUtils.consumeItem(item, false);
 		                    p.sendMessage(ChatColor.GREEN + "Player successfully whitelisted!");
